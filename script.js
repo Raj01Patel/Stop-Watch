@@ -2,6 +2,11 @@ let timerDisplay = document.querySelector('.timerDisplay');
 let stopBtn = document.getElementById('stopBtn');
 let startBtn = document.getElementById('startBtn');
 let resetBtn = document.getElementById('resetBtn');
+let lapBtn = document.getElementById('lap');
+let lapList = document.getElementById("lapList");
+let con = document.getElementById("container2");
+con.style.display = "none";
+
 
 let msec = 0;
 let secs = 0;
@@ -16,15 +21,34 @@ startBtn.addEventListener('click', function () {
     timerId = setInterval(startTimer, 10);
 });
 
+
 stopBtn.addEventListener('click', function () {
     clearInterval(timerId);
 });
 
+
 resetBtn.addEventListener('click', function () {
     clearInterval(timerId);
     timerDisplay.innerHTML = `00 : 00 : 00`;
+    lapList.innerHTML = ``;
     msec = secs = mins = 0;
+    lapCount = 1;
+    timerId=null;
 });
+
+
+let lapCount = 1;
+lapBtn.addEventListener('click', function () {
+    con.style.display = "block";
+    if (timerId !== null) {
+        let lapTime = timerDisplay.innerText;
+        let lapItem = document.createElement("li");
+        lapItem.innerText = "Lap " + lapCount + ": " + lapTime;
+        lapList.appendChild(lapItem);
+        lapCount++;
+    }
+});
+
 
 function startTimer() {
     msec++;

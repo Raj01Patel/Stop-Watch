@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
+body {
     color: #ae16dc;
     display: flex;
     justify-content: center;
@@ -13,31 +13,62 @@ body{
     min-height: 100vh;
     flex-direction: column;
     background-color: #ebe4ee;
+    display: flex;
 }
 
-.stopwatch{
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid black;
+    position: relative;
+
+}
+
+.container1 {
+    width: 60%;
+    text-align: center;
+    margin-right: 50px;
+}
+
+#container2 {
+    width: 20%;
+    text-align: center;
+    border: 3px solid #ae16dcca;
+    border-radius: 10px;
+    overflow-y: auto;
+    position: absolute;
+    right: 10px;
+}
+
+.stopwatch {
     border: 3px solid #ae16dc;
     padding: 20px 24px;
     border-radius: 10px;
 }
 
-.timerDisplay{
+.timerDisplay {
     font-size: 100px;
     font-weight: 600;
 }
 
-.buttons{
+.buttons {
     margin-top: 20px;
 }
 
-.btn{
-    font-size: 70px;
+.btn {
+    font-size: 50px;
     margin: 0px 20px;
     padding: 12px;
     border-radius: 10px;
     color: #ffffff;
     background-color: #ae16dc;
     border: none;
+    cursor: pointer;
 }
 
 button:active {
@@ -45,8 +76,16 @@ button:active {
     filter: brightness(.9);
 }
 
-button:hover{
+button:hover {
     background-color: #ae16dcca;
     box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
 
+}
+
+#lapList {
+    font-size:20px ;
+    font-weight: 500;
+    height: 500px;
+    list-style-type: none;
+    line-height: 40px;
 }
